@@ -1,0 +1,9 @@
+Risque	=> Average: 12.06, Std: 2.47, Median: 14.00, Q1: 9.00, Q3: 14.00, Min: 3.50, Max: 14.00
+age	=> Average: 22.93, Std: 13.19, Median: 20.00, Q1: 13.00, Q3: 31.00, Min: 1.00, Max: 124.00
+ca_export_FK	=> Average: 870.12, Std: 8173.64, Median: 1.00, Q1: 1.00, Q3: 47.00, Min: -8581.00, Max: 811020.00
+ca_total_FL_text	=> Average: 7326.83, Std: 43088.51, Median: 2505.00, Q1: 1300.00, Q3: 5659.00, Min: -162.00, Max: 5071221.00
+effectif	=> Average: 39.89, Std: 137.03, Median: 21.00, Q1: 14.00, Q3: 39.00, Min: 6.00, Max: 15783.00
+evo_benefice	=> Average: 1.53, Std: 25.47, Median: 0.16, Q1: -0.31, Q3: 1.03, Min: -1763.74, Max: 3077.00
+evo_effectif	=> Average: 0.17, Std: 1.05, Median: 0.00, Q1: -0.02, Q3: 0.17, Min: -1.06, Max: 61.02
+evo_risque	=> Average: 0.15, Std: 0.97, Median: 0.00, Q1: 0.00, Q3: 0.00, Min: -4.00, Max: 4.00
+ratio_benef	=> Average: 6.17, Std: 378.26, Median: 3.12, Q1: 1.21, Q3: 5.99, Min: -13015.05, Max: 68999.58
