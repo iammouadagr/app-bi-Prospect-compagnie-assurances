@@ -18,6 +18,19 @@ imputer = SimpleImputer(strategy='median')
 data['risque'] = imputer.fit_transform(data[['risque']])
 data['risque'] = data['risque'].astype(int)
 
+# Remplace les valeurs inferieurs à 7 par 7 dans la colonne risque
+data.loc[data['risque'] < 7, 'risque'] = 7
+data.loc[(data['risque'] >= 7) & (data['risque'] <= 9), 'risque'] = 2
+data.loc[(data['risque'] >9) & (data['risque'] <= 12), 'risque'] = 1
+data.loc[(data['risque'] >12) & (data['risque'] <= 15), 'risque'] = 0
+
+# Forme 3 categories: Faible, moyen, eleve
+data['risque'] = data['risque'].astype(str)
+data.loc[data['risque'] == "0", 'risque'] = "faible"
+data.loc[data['risque'] == "1", 'risque'] = "moyen"
+data.loc[data['risque'] == "2", 'risque'] = "eleve"
+
+
 # Supprimer toutes les lignes dans la colonne ratio_benef qui ont des valeurs supérieures à 100
 data = data[data['ratio_benef'] <= 100]
 
@@ -28,6 +41,12 @@ data['evo_risque'] = data['evo_risque'].astype(int)
 imputer = SimpleImputer(strategy='most_frequent')
 data['chgt_dir'] = imputer.fit_transform(data[['chgt_dir']])
 data['chgt_dir'] = data['chgt_dir'].astype(int)
+
+
+#Remplace les valeurs blancs par la mode
+imputer = SimpleImputer(strategy='most_frequent')
+data['type_com'] = imputer.fit_transform(data[['type_com']])
+data['type_com'] = data['type_com']
 
 
 # Exporter le nouveau dataset en format CSV
