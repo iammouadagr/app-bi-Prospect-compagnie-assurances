@@ -2,46 +2,46 @@ index,0
 ca_export_FK,-0.05308095314547919
 endettement,-0.02670822898032948
 evo_benefice,0.012290019448182156
-ratio_benef,0.009895476396019183
+ratio_benef,0.009895476396019185
 evo_effectif,0.010009387736630682
 evo_risque,-0.019243981058334816
-age,0.008263712407131385
+age,0.00826371240713138
 effectif_ETI,-0.12415024724487563
-effectif_GE,-0.014878698373178045
-effectif_MIC,-0.871369150349507
-effectif_PME,0.8990427610356847
+effectif_GE,-0.014878698373178047
+effectif_MIC,-0.8713691503495069
+effectif_PME,0.8990427610356848
 ca_total_FL_ETI,-0.12415024724487563
-ca_total_FL_GE,-0.014878698373178045
-ca_total_FL_MIC,-0.871369150349507
-ca_total_FL_PME,0.8990427610356847
+ca_total_FL_GE,-0.014878698373178047
+ca_total_FL_MIC,-0.8713691503495069
+ca_total_FL_PME,0.8990427610356848
 risque_eleve,-0.14839644144810255
 risque_faible,0.23740953762076997
-risque_moyen,-0.11945029076148879
+risque_moyen,-0.1194502907614888
 type_com_Commune monopolarisÃ©e,-0.01813965912880914
 type_com_Commune multipolarisÃ©e,0.013784478612761124
-type_com_Espace Ã  dominante rurale,-0.04443184571803283
+type_com_Espace Ã  dominante rurale,-0.044431845718032825
 type_com_PÃ´le urbain,0.04168321696741723
-activite_Commerce Autres,0.11059293523092341
-activite_Commerce de gros et intermÃ©diaires du commerce,0.08823326902224109
-activite_Construction : Autres,0.03310298722081455
-activite_Construction : Travaux divers. Menuiserie. Miroiterie,-0.014986198244359622
-activite_Hotels et restaurants,-0.04144924553225437
-activite_Industrie alimentaire. bois.cuir,-0.04786206220713461
+activite_Commerce Autres,0.11059293523092335
+activite_Commerce de gros et intermÃ©diaires du commerce,0.08823326902224107
+activite_Construction : Autres,0.03310298722081454
+activite_Construction : Travaux divers. Menuiserie. Miroiterie,-0.014986198244359624
+activite_Hotels et restaurants,-0.041449245532254375
+activite_Industrie alimentaire. bois.cuir,-0.04786206220713462
 activite_Industrie manufacturiÃ¨re : Autres,-0.0781503613373202
 activite_Industrie manufacturiÃ¨re : MÃ©tallurgie. travail des mÃ©taux,-0.018030902550837006
-activite_SantÃ© et action sociale. services sociaux. Ã©ducation. autres,-0.03165220552952131
-activite_Services. Location. Immobilier,-0.043778810569550734
-activite_Transport,0.02700075100840791
-actionnaire_entreprise,-0.6899828926846043
+activite_SantÃ© et action sociale. services sociaux. Ã©ducation. autres,-0.031652205529521305
+activite_Services. Location. Immobilier,-0.04377881056955073
+activite_Transport,0.027000751008407906
+actionnaire_entreprise,-0.6899828926846042
 actionnaire_famille,-0.18338251077795037
 actionnaire_pas d'actionnaire,0.44528534219793325
 actionnaire_personne physique,0.42792258972673386
-forme_jur_simpl_Affaire personnelle,-0.04740192200726169
-forme_jur_simpl_Autres,0.06723642369418341
-forme_jur_simpl_Coop. Ou union agricole,0.007537666922748611
-forme_jur_simpl_Forme juridique agricole,0.005705302266757331
-forme_jur_simpl_SARL,-0.08732055968376541
-forme_jur_simpl_Societe anonyme,0.0578864156589043
+forme_jur_simpl_Affaire personnelle,-0.047401922007261704
+forme_jur_simpl_Autres,0.06723642369418342
+forme_jur_simpl_Coop. Ou union agricole,0.007537666922748612
+forme_jur_simpl_Forme juridique agricole,0.00570530226675733
+forme_jur_simpl_SARL,-0.0873205596837654
+forme_jur_simpl_Societe anonyme,0.05788641565890432
 forme_jur_simpl_SociÃ©tÃ© civile,0.021586677550999068
 forme_jur_simpl_SociÃ©tÃ© en nom collectif,-0.052128248467381864
-forme_jur_simpl_SociÃ©tÃ© par actions simplifiÃ©e,0.05678588967172978
+forme_jur_simpl_SociÃ©tÃ© par actions simplifiÃ©e,0.05678588967172979

@@ -124,30 +124,30 @@ def clean_suppervised():
 
 
     #Forme des categories d'entreprises suivant leurs chiffres d'affaire, on priorise le chiffre d'affaire sur l'effectif pour donner le chiffre d'affaire
-    # data.loc[data['ca_total_FL'] < 2000, 'effectif'] = 1
-    # data.loc[(data['ca_total_FL'] >= 2000) & (data['ca_total_FL'] <50000), 'effectif'] = 2
-    # data.loc[(data['ca_total_FL'] >=50000) & (data['ca_total_FL'] < 1500000), 'effectif'] = 3
-    # data.loc[(data['ca_total_FL'] >=1500000) , 'effectif'] = 4 
+    data.loc[data['ca_total_FL'] < 2000, 'effectif'] = 1
+    data.loc[(data['ca_total_FL'] >= 2000) & (data['ca_total_FL'] <50000), 'effectif'] = 2
+    data.loc[(data['ca_total_FL'] >=50000) & (data['ca_total_FL'] < 1500000), 'effectif'] = 3
+    data.loc[(data['ca_total_FL'] >=1500000) , 'effectif'] = 4 
 
 
-    # data.loc[data['ca_total_FL'] < 2000, 'ca_total_FL'] = 1
-    # data.loc[(data['ca_total_FL'] >= 2000 ) & (data['ca_total_FL'] <50000), 'ca_total_FL'] = 2
-    # data.loc[(data['ca_total_FL'] >=50000) & (data['ca_total_FL'] < 1500000), 'ca_total_FL'] = 3
-    # data.loc[(data['ca_total_FL'] >=1500000) , 'ca_total_FL'] = 4
+    data.loc[data['ca_total_FL'] < 2000, 'ca_total_FL'] = 1
+    data.loc[(data['ca_total_FL'] >= 2000 ) & (data['ca_total_FL'] <50000), 'ca_total_FL'] = 2
+    data.loc[(data['ca_total_FL'] >=50000) & (data['ca_total_FL'] < 1500000), 'ca_total_FL'] = 3
+    data.loc[(data['ca_total_FL'] >=1500000) , 'ca_total_FL'] = 4
 
 
-    # data['ca_total_FL'] = data['ca_total_FL'].astype(str)
-    # data.loc[data['ca_total_FL'] == "1", 'ca_total_FL'] = "MIC"
-    # data.loc[data['ca_total_FL'] == "2", 'ca_total_FL'] = "PME"
-    # data.loc[data['ca_total_FL'] == "3", 'ca_total_FL'] = "ETI"
-    # data.loc[data['ca_total_FL'] == "4", 'ca_total_FL'] = "GE"
+    data['ca_total_FL'] = data['ca_total_FL'].astype(str)
+    data.loc[data['ca_total_FL'] == "1", 'ca_total_FL'] = "MIC"
+    data.loc[data['ca_total_FL'] == "2", 'ca_total_FL'] = "PME"
+    data.loc[data['ca_total_FL'] == "3", 'ca_total_FL'] = "ETI"
+    data.loc[data['ca_total_FL'] == "4", 'ca_total_FL'] = "GE"
 
 
-    # data['effectif'] = data['effectif'].astype(str)
-    # data.loc[data['effectif'] == "1", 'effectif'] = "MIC"
-    # data.loc[data['effectif'] == "2", 'effectif'] = "PME"
-    # data.loc[data['effectif'] == "3", 'effectif'] = "ETI"
-    # data.loc[data['effectif'] == "4", 'effectif'] = "GE"
+    data['effectif'] = data['effectif'].astype(str)
+    data.loc[data['effectif'] == "1", 'effectif'] = "MIC"
+    data.loc[data['effectif'] == "2", 'effectif'] = "PME"
+    data.loc[data['effectif'] == "3", 'effectif'] = "ETI"
+    data.loc[data['effectif'] == "4", 'effectif'] = "GE"
 
     # Supprimer toutes les lignes dans la colonne ratio_benef qui ont des valeurs supérieures à 100
     data = data[data['ratio_benef'] <= 100]
