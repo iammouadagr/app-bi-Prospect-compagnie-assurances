@@ -20,7 +20,7 @@ def create_profile_graph(file,info):
     plt.ylabel(info["y_label"])
     ax.set_xticks(range(len(data.index)))
     ax.set_xticklabels(data.index, rotation=90)
-    plt.savefig('fig/visualisation_{}'.format(file),bbox_inches='tight')
+    plt.savefig('../fig/visualisation_{}'.format(file),bbox_inches='tight')
 
 
 info_kmeans = {"title": "Caractéristiques des profils de classes avec Kmeans ", "x_label":"", "y_label": "Valeurs", "bounds":(-1,1)}

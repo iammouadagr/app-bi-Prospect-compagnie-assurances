@@ -5,7 +5,7 @@ from sklearn.impute import SimpleImputer
 def clean_unsupervised():
 
     # Charger le dataset
-    data = pd.read_csv("../data/base_prospect.csv",encoding="ISO-8859-1")
+    data = pd.read_csv("./data/base_prospect.csv",encoding="ISO-8859-1")
 
     # Transformer les valeurs négatives en valeurs positives dans les colonnes ca_total_FL et ca_export_FK
     data[['ca_total_FL', 'ca_export_FK']] = data[['ca_total_FL', 'ca_export_FK']].abs()
@@ -33,7 +33,24 @@ def clean_unsupervised():
     data.loc[data['risque'] == "1", 'risque'] = "moyen"
     data.loc[data['risque'] == "2", 'risque'] = "eleve"
 
+    # Supprimer toutes les lignes dans la colonne ratio_benef qui ont des valeurs supérieures à 100
+    data = data[data['ratio_benef'] <= 100]
 
+    # Remplacer toutes les valeurs NA dans la colonne evo_risque par la valeur médiane
+    data['evo_risque'] = imputer.fit_transform(data[['evo_risque']])
+    data['evo_risque'] = data['evo_risque'].astype(int)
+
+    imputer = SimpleImputer(strategy='most_frequent')
+    data['chgt_dir'] = imputer.fit_transform(data[['chgt_dir']])
+    data['chgt_dir'] = data['chgt_dir'].astype(int)
+
+    #Remplace les valeurs blancs par la mode
+    imputer = SimpleImputer(strategy='most_frequent')
+    data['type_com'] = imputer.fit_transform(data[['type_com']])
+    data['type_com'] = data['type_com']
+
+    # Exporter le nouveau dataset en format CSV
+    data.to_csv("./data/base_prospect_clean1.csv", index=False)
 
     #Forme des categories d'entreprises suivant leurs chiffres d'affaire, on priorise le chiffre d'affaire sur l'effectif pour donner le chiffre d'affaire
     data.loc[data['ca_total_FL'] < 2000, 'effectif'] = 1
@@ -47,13 +64,11 @@ def clean_unsupervised():
     data.loc[(data['ca_total_FL'] >=50000) & (data['ca_total_FL'] < 1500000), 'ca_total_FL'] = 3
     data.loc[(data['ca_total_FL'] >=1500000) , 'ca_total_FL'] = 4
 
-
     data['ca_total_FL'] = data['ca_total_FL'].astype(str)
     data.loc[data['ca_total_FL'] == "1", 'ca_total_FL'] = "MIC"
     data.loc[data['ca_total_FL'] == "2", 'ca_total_FL'] = "PME"
     data.loc[data['ca_total_FL'] == "3", 'ca_total_FL'] = "ETI"
     data.loc[data['ca_total_FL'] == "4", 'ca_total_FL'] = "GE"
-
 
     data['effectif'] = data['effectif'].astype(str)
     data.loc[data['effectif'] == "1", 'effectif'] = "MIC"
@@ -61,28 +76,8 @@ def clean_unsupervised():
     data.loc[data['effectif'] == "3", 'effectif'] = "ETI"
     data.loc[data['effectif'] == "4", 'effectif'] = "GE"
 
-    # Supprimer toutes les lignes dans la colonne ratio_benef qui ont des valeurs supérieures à 100
-    data = data[data['ratio_benef'] <= 100]
-
-    # Remplacer toutes les valeurs NA dans la colonne evo_risque par la valeur médiane
-    data['evo_risque'] = imputer.fit_transform(data[['evo_risque']])
-    data['evo_risque'] = data['evo_risque'].astype(int)
-
-    imputer = SimpleImputer(strategy='most_frequent')
-    data['chgt_dir'] = imputer.fit_transform(data[['chgt_dir']])
-    data['chgt_dir'] = data['chgt_dir'].astype(int)
-
-
-    #Remplace les valeurs blancs par la mode
-    imputer = SimpleImputer(strategy='most_frequent')
-    data['type_com'] = imputer.fit_transform(data[['type_com']])
-    data['type_com'] = data['type_com']
-
-
     # Exporter le nouveau dataset en format CSV
-    data.to_csv("../data/base_prospect_unsuppervised.csv", index=False)
-
-
+    data.to_csv("./data/base_prospect_unsuppervised.csv", index=False)
 
 #type entreprise                effectif                CA
 #microentreprises               <10                     < 2 000 000
@@ -93,7 +88,7 @@ def clean_unsupervised():
 def clean_suppervised():
 
     # Charger le dataset
-    data = pd.read_csv("../data/base_prospect.csv",encoding="ISO-8859-1")
+    data = pd.read_csv("./data/base_prospect.csv",encoding="ISO-8859-1")
 
     # Transformer les valeurs négatives en valeurs positives dans les colonnes ca_total_FL et ca_export_FK
     data[['ca_total_FL', 'ca_export_FK']] = data[['ca_total_FL', 'ca_export_FK']].abs()
@@ -168,7 +163,7 @@ def clean_suppervised():
 
 
     # Exporter le nouveau dataset en format CSV
-    data.to_csv("../data/base_prospect_suppervised.csv", index=False)
+    data.to_csv("./data/base_prospect_suppervised.csv", index=False)
 
 clean_suppervised()
 clean_unsupervised()
