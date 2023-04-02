@@ -85,7 +85,7 @@ def clean_unsupervised():
 #ETI                            250 - 4999             [ 50 000 000 -  1 500 000 000 ] 
 #GE                             5000 - plus            [ 1 500 000 000 - plus ] 
                   
-def clean_suppervised():
+def clean_supervised():
 
     # Charger le dataset
     data = pd.read_csv("../data/base_prospect.csv",encoding="ISO-8859-1")
@@ -165,5 +165,5 @@ def clean_suppervised():
     # Exporter le nouveau dataset en format CSV
     data.to_csv("../data/base_prospect_suppervised.csv", index=False)
 
-clean_suppervised()
+clean_supervised()
 clean_unsupervised()
