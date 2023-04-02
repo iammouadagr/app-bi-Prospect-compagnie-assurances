@@ -13,6 +13,7 @@ if __name__ == "__main__" :
     print("------------------------------------")
     print("####  Classification non supervisée  ####")
     subprocess.run(["python", "unsupervise.py"])
+    subprocess.run(["python", "profile_analysis.py"])
     print("------------------------------------")
     print("####  Classification supervisée  ####")
     subprocess.run(["python", "supervised.py"])
