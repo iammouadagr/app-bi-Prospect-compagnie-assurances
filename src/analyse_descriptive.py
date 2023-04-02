@@ -25,9 +25,10 @@ y = df.code_cr
 fig = plt.figure()
 cmap = cm.get_cmap('gnuplot')
 # scatter = pd.plotting.scatter_matrix(X,, marker = 'o', s=40, hist_kwds={'bins':15}, figsize=(9,9), cmap = cmap)
-scatter = pd.plotting.scatter_matrix(X, alpha=0.4,marker='o',figsize=(80,80))
+scatter = pd.plotting.scatter_matrix(X, alpha=0.4,marker='o',figsize=(100,100))
+plt.yticks(fontsize=20)
 plt.suptitle('Scatter-matrix for each input variable')
-plt.show()
+
 plt.savefig('../fig/analyse_descriptive/df_scatter_matrix')
 plt.close(fig)
 
