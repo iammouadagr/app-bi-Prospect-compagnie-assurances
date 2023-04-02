@@ -47,7 +47,7 @@ from sklearn.model_selection import cross_val_predict
 from sklearn import metrics
 from sklearn.model_selection import GridSearchCV
 
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 from sklearn.preprocessing import StandardScaler
 
@@ -84,7 +84,21 @@ def accuracy_score(X,y):
 def confusion_matrix(X,y, datatype):
     for clf,name_clf in zip(lst_classif,lst_classif_names):
         predicted = cross_val_predict(clf, X, y, cv=5) 
-        print("Accuracy of "+name_clf+" classifier on cross-validation: %0.2f" % metrics.accuracy_score(y, predicted))
+        accuracy = metrics.accuracy_score(y, predicted)
+        print("Accuracy of "+name_clf+" classifier on cross-validation: %0.2f" % accuracy)
+    
+        df_report = pd.DataFrame(classification_report(y, predicted,output_dict=True)).transpose()
+        df_report = df_report.reset_index()
+        df_report.index.name = 'label'
+
+        df_report.to_csv("../data/rdforest_{}_report.csv".format(datatype),index=False)
+
+
+        scores_label = ["accuracy_score"]
+        df_score = {"label": scores_label, "value": ["{:.3f}".format(accuracy)]}
+        df_score = pd.DataFrame(df_score)
+        df_score.to_csv("../data/rdforest_{}_accuracy_score.csv".format(datatype), index=False)
+
         cm = metrics.confusion_matrix(y, predicted)
         disp = ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=class_names)
         disp.plot()
@@ -105,6 +119,7 @@ def important_features(X,columns,type_features):
     fig.tight_layout()
     plt.savefig('../fig/important_features_{}'.format(type_features))
     plt.close()
+
 
 from sklearn import tree
 # Plot decision tree for one of the trees in the forest
