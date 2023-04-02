@@ -172,7 +172,7 @@ plt.close()
 #Agglomerative clustering using centroid of kmeans clustering 
 from sklearn.cluster import AgglomerativeClustering
 #After analysing the created dendogram we choose 5 as the number of clusters
-n_cluster_cah = 12
+n_cluster_cah = 9
 print("Compute unstructured hierarchical clustering...")
 ward = AgglomerativeClustering(n_clusters=n_cluster_cah, linkage="ward").fit(k_centroids)
 labels = ward.labels_
