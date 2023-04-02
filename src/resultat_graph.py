@@ -10,10 +10,11 @@ plt.ioff()
 def create_result_grapth(file,info):
     data = pd.read_csv("../data/{}.csv".format(file),encoding="ISO-8859-1")
     data.set_index('label', inplace=True)
-    data = data.add_prefix("profile_")
     # data = data[(data < info["bounds"][0]).any(axis=1) | (data > info["bounds"][1]).any(axis=1)]
     ax=data.plot(kind='bar', figsize=(15,8),  use_index=True)
     ax.set_ylim([0, 1])
+    ax.grid(True, color='black', alpha=0.05)
+
     plt.title(info["title"])
     plt.xlabel(info["x_label"])
     plt.ylabel(info["y_label"])
@@ -22,7 +23,8 @@ def create_result_grapth(file,info):
     plt.savefig('../fig/resultat_{}'.format(file),bbox_inches='tight')
 
 
-info_kmeans = {"title": "Kmeans metrics", "x_label":"", "y_label": "Valeurs"}
-create_result_grapth("kmeans_score",info_kmeans)
-info_kmeans_cah = {"title": "Classification mixte (CAH+Kmeans) metrics", "x_label":"", "y_label": "Valeurs"}
-create_result_grapth("kmeans_cah_score",info_kmeans_cah)
+def make_result():
+    info_kmeans = {"title": "Kmeans metrics", "x_label":"", "y_label": "Valeurs"}
+    create_result_grapth("kmeans_score",info_kmeans)
+    info_kmeans_cah = {"title": "Classification mixte (CAH+Kmeans) metrics", "x_label":"", "y_label": "Valeurs"}
+    create_result_grapth("kmeans_cah_score",info_kmeans_cah)

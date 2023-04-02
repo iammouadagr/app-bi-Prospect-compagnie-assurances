@@ -14,6 +14,7 @@ def create_profile_graph(file,info):
     data = data.add_prefix("profile_")
     # data = data[(data < info["bounds"][0]).any(axis=1) | (data > info["bounds"][1]).any(axis=1)]
     ax=data.plot(kind='line', figsize=(15,8),  use_index=True)
+    ax.grid(True, color='black', alpha=0.05)
 
     plt.title(info["title"])
     plt.xlabel(info["x_label"])
@@ -22,11 +23,11 @@ def create_profile_graph(file,info):
     ax.set_xticklabels(data.index, rotation=90)
     plt.savefig('../fig/visualisation_{}'.format(file),bbox_inches='tight')
 
-
-info_kmeans = {"title": "Caractéristiques des profils de classes avec Kmeans ", "x_label":"", "y_label": "Valeurs", "bounds":(-1,1)}
-create_profile_graph("profile",info_kmeans)
-info_kmeans_cah = {"title": "Caractéristiques des profils de classes avec (Kmeans+CAH)  ", "x_label":"", "y_label": "Valeurs", "bounds":(-5,5)}
-create_profile_graph("profile_cah",info_kmeans_cah)
+def make_profile():
+    info_kmeans = {"title": "Caractéristiques des profils de classes avec Kmeans ", "x_label":"", "y_label": "Valeurs", "bounds":(-1,1)}
+    create_profile_graph("profile",info_kmeans)
+    info_kmeans_cah = {"title": "Caractéristiques des profils de classes avec (Kmeans+CAH)  ", "x_label":"", "y_label": "Valeurs", "bounds":(-5,5)}
+    create_profile_graph("profile_cah",info_kmeans_cah)
 
 
 

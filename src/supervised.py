@@ -1,12 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import clean_dataset
 # Turn interactive plotting off
 plt.ioff()
 
 # read input text and put data inside a data frame
-clean_dataset.clean_suppervised()
 data = pd.read_csv("../data/base_prospect_suppervised.csv",encoding="ISO-8859-1")
 # prospect =  pd.DataFrame(prospect)
 data['risque'] = data['risque'].astype(object)
