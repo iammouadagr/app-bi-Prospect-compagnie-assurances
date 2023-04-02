@@ -94,6 +94,7 @@ def confusion_matrix(X,y, datatype):
         plt.close()
     pass
 
+
 def important_features(X,columns,type_features):
     importances = rdforest.feature_importances_
     forest_importances = pd.Series(importances, index=columns)
