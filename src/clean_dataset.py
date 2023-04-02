@@ -5,7 +5,7 @@ from sklearn.impute import SimpleImputer
 def clean_unsupervised():
 
     # Charger le dataset
-    data = pd.read_csv("./data/base_prospect.csv",encoding="ISO-8859-1")
+    data = pd.read_csv("../data/base_prospect.csv",encoding="ISO-8859-1")
 
     # Transformer les valeurs négatives en valeurs positives dans les colonnes ca_total_FL et ca_export_FK
     data[['ca_total_FL', 'ca_export_FK']] = data[['ca_total_FL', 'ca_export_FK']].abs()
@@ -50,7 +50,7 @@ def clean_unsupervised():
     data['type_com'] = data['type_com']
 
     # Exporter le nouveau dataset en format CSV
-    data.to_csv("./data/base_prospect_clean1.csv", index=False)
+    data.to_csv("../data/base_prospect_clean1.csv", index=False)
 
     #Forme des categories d'entreprises suivant leurs chiffres d'affaire, on priorise le chiffre d'affaire sur l'effectif pour donner le chiffre d'affaire
     data.loc[data['ca_total_FL'] < 2000, 'effectif'] = 1
@@ -77,7 +77,7 @@ def clean_unsupervised():
     data.loc[data['effectif'] == "4", 'effectif'] = "GE"
 
     # Exporter le nouveau dataset en format CSV
-    data.to_csv("./data/base_prospect_unsuppervised.csv", index=False)
+    data.to_csv("../data/base_prospect_unsuppervised.csv", index=False)
 
 #type entreprise                effectif                CA
 #microentreprises               <10                     < 2 000 000
@@ -88,7 +88,7 @@ def clean_unsupervised():
 def clean_suppervised():
 
     # Charger le dataset
-    data = pd.read_csv("./data/base_prospect.csv",encoding="ISO-8859-1")
+    data = pd.read_csv("../data/base_prospect.csv",encoding="ISO-8859-1")
 
     # Transformer les valeurs négatives en valeurs positives dans les colonnes ca_total_FL et ca_export_FK
     data[['ca_total_FL', 'ca_export_FK']] = data[['ca_total_FL', 'ca_export_FK']].abs()
@@ -163,7 +163,7 @@ def clean_suppervised():
 
 
     # Exporter le nouveau dataset en format CSV
-    data.to_csv("./data/base_prospect_suppervised.csv", index=False)
+    data.to_csv("../data/base_prospect_suppervised.csv", index=False)
 
 clean_suppervised()
 clean_unsupervised()
