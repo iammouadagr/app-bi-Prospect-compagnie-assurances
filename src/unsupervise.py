@@ -68,7 +68,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 
-def bench_k_means(kmeans, name, data, labels):
+def bench_k_means(kmeans, name, data, labels, iskmeans=False):
     """Benchmark to evaluate the KMeans initialization methods.
 
     Parameters
@@ -110,6 +110,11 @@ def bench_k_means(kmeans, name, data, labels):
             sample_size=300,
         )
     ]
+    if (iskmeans):
+        scores_label = ["homogeneity_score","completeness_score","v_measure_score","adjusted_rand_score","adjusted_mutual_info_score","silhouette_score"]
+        df_score = {"label": scores_label, "value": results[3:]}
+        df_score = pd.DataFrame(df_score)
+        df_score.to_csv("../data/kmeans_score.csv",index=False)
 
     # Show the results
     formatter_result = (
@@ -125,7 +130,7 @@ n_cluster = 5
 kmeans = KMeans(init="k-means++", n_clusters=n_cluster, n_init=15, random_state=0)
 labels = kmeans.fit(X_num_cat).labels_
 
-bench_k_means(kmeans=kmeans, name="k-means++", data=X_num_cat, labels=labels)
+bench_k_means(kmeans=kmeans, name="k-means++", data=X_num_cat, labels=labels, iskmeans=True)
 k_centroids = kmeans.cluster_centers_
 # print(kmeans.cluster_centers_)
 for index, centroid in enumerate(k_centroids):
@@ -183,6 +188,10 @@ davies_bouldin_score=metrics.davies_bouldin_score(k_centroids, labels)
 # print("Les indices de silhouettes :", silhouettes)
 print("L'indice de silhouette moyen est :", silhouette_avg)
 print("L'indice de davies_bouldin_score moyen est :", davies_bouldin_score)
+scores_label = ["silhouette_score","davies_bouldin_score"]
+df_score = {"label": scores_label, "value": [silhouette_avg,davies_bouldin_score]}
+df_score = pd.DataFrame(df_score)
+df_score.to_csv("../data/kmeans_cah_score.csv", index=False)
 
 
 #Save the cluster's profil for further analysis
